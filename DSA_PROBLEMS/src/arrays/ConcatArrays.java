@@ -43,6 +43,7 @@ public class ConcatArrays {
 		for(int i=0; i<len*2; i++) {
 			System.out.println("  "+ res[i]);
 		}
+		System.out.println(" Testing Edited in Notepad");
 		sc.close();
 
 	}

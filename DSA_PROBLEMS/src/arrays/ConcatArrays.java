@@ -44,7 +44,8 @@ public class ConcatArrays {
 			System.out.println("  "+ res[i]);
 		}
 		System.out.println(" Testing Edited in Notepad");
-		System.out.println(" Creating a feature branch in local and pushing it to github");
+		System.out.println(" Creating a feature branch from local and pushing it to github");
+		System.out.println(" changes in feature/from local through note pad");
 		sc.close();
 
 	}

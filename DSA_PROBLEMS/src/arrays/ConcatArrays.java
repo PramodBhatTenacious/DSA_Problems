@@ -43,9 +43,10 @@ public class ConcatArrays {
 		for(int i=0; i<len*2; i++) {
 			System.out.println("  "+ res[i]);
 		}
-		System.out.println(" Testing Edited in Notepad");
-		System.out.println(" Creating a feature branch from local and pushing it to github");
-		System.out.println(" changes in feature/from local through note pad");
+		System.out.println("Suppose in case if the branch is not there in "
+				+ "github and you create a new "
+				+ "feature branch in gjit hub and you do not push the branch,"
+				+ " but you use only the url to push where does the code go and sit??");
 		sc.close();
 
 	}

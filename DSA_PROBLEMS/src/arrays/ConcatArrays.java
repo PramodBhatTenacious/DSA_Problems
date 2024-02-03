@@ -35,7 +35,7 @@ public class ConcatArrays {
 			// you are going liner iteration on nums
 			// ur filling result as needed in the output.
 			result[2 * i] = nums[i];
-			
+
 			// FILLING THE FIST HALF TO EVEN NUMBERED POSITIONS of entire result array
 
 			result[2 * i + 1] = nums[n + i];// FILLING THE SECOND HALF TO ODD NUMBERD POSITIONS
@@ -43,42 +43,74 @@ public class ConcatArrays {
 			// also.
 		}
 		System.out.println(" ");
-		for(int i=0;i<result.length;i++)
-		{
+		for (int i = 0; i < result.length; i++) {
 			System.out.println("Shuffeled array is -: " + result[i]);
 		}
 		return result;
 	}
 
+	public static int maxWidthOfVerticalArea() {
+		// They are simply confusing by telling you that it is vertical area
+		// READ THE INSIGHTS DOWN BELOW TO UNDERSTAND THE ENTIRE PROBLEM.
+
+		// INSIGHTS-: to find the highest width size horizontally that is x
+		// x axis
+		Scanner scc = new Scanner(System.in);
+		int lenn_rows;
+		int lenn_cols;
+		System.out.println("Enter the no of rows and coloumns");
+		lenn_rows = scc.nextInt();
+		lenn_cols = scc.nextInt();
+		int points[][] = new int[lenn_rows][lenn_cols];
+
+		System.out.println("Enter the elements of points matrix");
+		for (int i = 0; i < points.length; i++) {
+			for (int j = 0; j < lenn_cols; j++) {
+
+				points[i][j] = scc.nextInt();
+
+			}
+		}
+		System.out.println("Displaying the  points matrix");
+		for (int i = 0; i < points.length; i++) {
+			for (int j = 0; j < lenn_cols; j++) {
+
+				System.out.print(" " + points[i][j]);
+			}
+		}
+		int arr[] = new int[points.length];
+
+		for (int i = 0; i < points.length; i++) {
+			arr[i] = points[i][0];
+
+		}
+		Arrays.sort(arr);
+		int res = 0;
+		for (int i = 1; i < arr.length; i++) {
+			res = Math.max(res, arr[i] - arr[i - 1]);
+
+		}
+		scc.close();
+		return res;
+
+	}
+
 	public static void main(String[] args) {
-		int len;
+		int res;
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter the length OR number of Inputs " + "that you would like to store");
-		len = sc.nextInt();
-		
-		int nums[] = new int[len];
-		int res[] = new int[len * 2];
-			int n = len/2;
-		System.out.println("Enter the element of the array");
-		for (int i = 0; i < len; i++) {
-			nums[i] = sc.nextInt();
-		}
+		/*
+		 * System.out.println("Enter the length OR number of Inputs " +
+		 * "that you would like to store"); len = sc.nextInt(); int nums[] = new
+		 * int[len]; int res[] = new int[len * 2]; int n = len / 2;
+		 * System.out.println("Enter the element of the array"); for (int i = 0; i <
+		 * len; i++) { nums[i] = sc.nextInt(); } res = getConcatenation(nums);
+		 * System.out.println("Concatinated Array is "); for (int i = 0; i < len * 2;
+		 * i++) { System.out.print(" " + res[i]); } res = shuffle(nums, len / 2);
+		 */
+		res = maxWidthOfVerticalArea();
+		System.out.println(" ");
+		System.out.println("The RESULT for max width is " + res);
 
-		res = getConcatenation(nums);
-		System.out.println("Concatinated Array is ");
-		for (int i = 0; i < len * 2; i++) {
-			
-			System.out.print(" " + res[i]);
-		}
-
-		System.out.println("Suppose in case if the branch is not there in "
-				+ "github and you create a new "
-				+ "feature branch in gjit hub and you do not push the branch,"
-				+ " but you use only the url to push where does the code go and sit??");
-
-		
-		res = shuffle(nums, len/2); 
-		
 		sc.close();
 
 	}

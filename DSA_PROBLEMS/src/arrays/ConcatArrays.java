@@ -64,75 +64,104 @@ public class ConcatArrays {
 	 * }
 	 */
 
-	 public static int maximumWealth() {
-	        // returnig the largest sum of a row in a matrix
-		 Scanner sc = new Scanner(System.in);
-		
-		 System.out.println("Enter the size of the colo and row");
-		 int row = sc.nextInt();
-		 int cols = sc.nextInt();
-		 int[][] accounts = new int[row][cols];
-		 System.out.println("Enter the elements inside the matrix");
-		 for(int i=0;i<row; i++){
-	            for(int j=0; j< cols; j++){
-	                 
-	                 accounts[i][j] = sc.nextInt();
-	            }
-	           
-	        }
-		
-	        int max=0;
-	        int sum=0;
-	        int col = accounts[0].length;
+	/*
+	 * public static int maximumWealth() { // returnig the largest sum of a row in a
+	 * matrix Scanner sc = new Scanner(System.in);
+	 * 
+	 * System.out.println("Enter the size of the colo and row"); int row =
+	 * sc.nextInt(); int cols = sc.nextInt(); int[][] accounts = new int[row][cols];
+	 * System.out.println("Enter the elements inside the matrix"); for(int
+	 * i=0;i<row; i++){ for(int j=0; j< cols; j++){
+	 * 
+	 * accounts[i][j] = sc.nextInt(); }
+	 * 
+	 * }
+	 * 
+	 * int max=0; int sum=0; int col = accounts[0].length;
+	 * 
+	 * for(int i=0;i<accounts.length; i++){ for(int j=0; j< col; j++){
+	 * 
+	 * sum= sum + accounts[i][j]; } max = Math.max(sum, max); sum=0; }
+	 * System.out.println("RESULT-: "+ max); return max; }
+	 * 
+	 * public static List<Integer> findindexofletter() { // FULL STRING INPUT BY
+	 * SCANNER CLASS Scanner sc = new Scanner(System.in); int len; List<Integer>
+	 * result = new ArrayList<>();
+	 * System.out.println("Enter the length of the string array");
+	 * System.out.println(" "); len = sc.nextInt(); String strarr[] = new
+	 * String[len]; System.out.println("Enter the words inside and array"); for (int
+	 * i = 0; i < len; i++) {
+	 * 
+	 * strarr[i] = sc.next();
+	 * 
+	 * }
+	 * 
+	 * System.out.println("Enter the character that you wish to check"); String
+	 * input = sc.next(); char ch = input.charAt(0);
+	 * 
+	 * for (int i = 0; i < len; i++) { if (strarr[i].indexOf(ch) != -1) {// meaning
+	 * the req character is present result.add(i); } }
+	 * System.out.println("Displaying the final result-: "); //for(int i=0;i<
+	 * result.length; i++) { System.out.println(" " +result ); //} sc.close();
+	 * return result;
+	 * 
+	 * 
+	 * }
+	 */
+	  public static  List<Boolean> kidsWithCandies() {
+	        // have to find the multiple greatest number of candies after adding
+	        // the extra candies
 
-	        for(int i=0;i<accounts.length; i++){
-	            for(int j=0; j< col; j++){
-	                 
-	                sum= sum + accounts[i][j];
-	            }
-	            max = Math.max(sum, max);
-	            sum=0;
+	        // when added it must be greater or equal to the max of array
+	        // others all can be marked as false.
+		  	
+		  	Scanner sc = new Scanner(System.in);
+		  	System.out.println("Enter the Length of the candies array");
+		  	int len=sc.nextInt();
+		  	int candies[] = new int[len];
+		  	System.out.println("Enter the elements of the candies array");
+		  	
+		  	
+		  	for(int i = 0; i< len; i++)
+		  	{
+		  		
+				candies[i] = sc.nextInt();
+		  	}
+		  	
+		  	System.out.println("Enter the extra candies");
+		  	int extraCandies =sc.nextInt();
+		  	
+	        int max=0;
+	        // add the extra candies.
+	        int[] addedarr = new int[candies.length];
+	       String str[]  = new String[candies.length];
+	        List<Boolean> boole = new ArrayList<>();
+	        
+	        for(int i =0; i<candies.length; i++){
+	            addedarr[i] = candies[i]+ extraCandies;
+	             max = Math.max(candies[i], max);  
 	        }
-	        System.out.println("RESULT-: "+ max);
-	        return max;
+
+	        for(int i= 0;i< addedarr.length;i++){
+	          if(addedarr[i] > max || addedarr[i]==max)
+	          {
+	              //boole.add(i) = true;
+	              str[i] = "true";
+	              boole.add(Boolean.parseBoolean(str[i]));
+	          }
+	          else{
+	               str[i] = "false";
+	               boole.add(Boolean.parseBoolean(str[i]));
+	          }
+	        }
+	        System.out.println("This is the BOOLEN LIST-: " +boole );
+	        
+	        sc.close();
+	        return boole;
+
 	    }
 	
-	public static List<Integer> findindexofletter()
-	{
-		// FULL STRING INPUT BY SCANNER CLASS
-		Scanner sc = new Scanner(System.in);
-		int len;
-		List<Integer> result = new ArrayList<>();
-		System.out.println("Enter the length of the string array");
-		System.out.println(" ");
-		len = sc.nextInt();
-		String strarr[] = new String[len];
-		System.out.println("Enter the words inside and array");
-		for (int i = 0; i < len; i++) {
-
-			strarr[i] = sc.next();
-
-		}
-
-		System.out.println("Enter the character that you wish to check");
-		String input = sc.next();
-		char ch = input.charAt(0);
-
-		for (int i = 0; i < len; i++) {
-			if (strarr[i].indexOf(ch) != -1) {// meaning the req character is present
-				result.add(i);
-			}
-		}
-		System.out.println("Displaying the final result-: ");
-		//for(int i=0;i< result.length; i++) {
-			System.out.println(" " +result );
-		//}
-		sc.close();
-		return result;
-
-		
-	}
-
+	
 	public static void main(String[] args) {
 		int res;
 		Scanner sc = new Scanner(System.in);
@@ -151,8 +180,8 @@ public class ConcatArrays {
 		 */
 		
 		//findindexofletter();
-		maximumWealth();
-		
+		//maximumWealth();
+		kidsWithCandies();
 		sc.close();
 
 	}
